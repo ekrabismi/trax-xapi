@@ -32,7 +32,7 @@ class XapiServerUI extends UIRegistrar
     public function init()
     {
         // Statements
-        if (config('trax-xapi-server.stores.Statement.ajax')) {
+        if (config('trax-xapi-server.services.statements')) {
 
             // Side menu
             $this->sideMenu['data']['statements'] = [
@@ -43,7 +43,7 @@ class XapiServerUI extends UIRegistrar
         }
 
         // Activities
-        if (config('trax-xapi-server.stores.Activity.ajax')) {
+        if (config('trax-xapi-server.services.activities')) {
 
             // Side menu
             $this->sideMenu['data']['activities'] = [
@@ -54,7 +54,7 @@ class XapiServerUI extends UIRegistrar
         }
 
         // Agents
-        if (config('trax-xapi-server.stores.Agent.ajax')) {
+        if (config('trax-xapi-server.services.agents')) {
 
             // Side menu
             $this->sideMenu['data']['agents'] = [

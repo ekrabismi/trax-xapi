@@ -22,17 +22,17 @@ Route::middleware(['web', 'auth', 'locale'])->namespace('Trax\XapiServer\Http\Co
     Route::get('trax/ui/xapi-server/settings', 'XapiServerViewsController@settings')->name('trax.ui.xapi-server.settings');
 
     // Statements
-    if (config('trax-xapi-server.stores.Statement.ajax')) {
+    if (config('trax-xapi-server.services.statements')) {
         Route::get('trax/ui/xapi-server/statements', 'XapiServerViewsController@statements')->name('trax.ui.xapi-server.statements');
     }
 
     // Activities
-    if (config('trax-xapi-server.stores.Activity.ajax')) {
+    if (config('trax-xapi-server.services.activities')) {
         Route::get('trax/ui/xapi-server/activities', 'XapiServerViewsController@activities')->name('trax.ui.xapi-server.activities');
     }
 
     // Agents
-    if (config('trax-xapi-server.stores.Agent.ajax')) {
+    if (config('trax-xapi-server.services.agents')) {
         Route::get('trax/ui/xapi-server/agents', 'XapiServerViewsController@agents')->name('trax.ui.xapi-server.agents');
     }
 
