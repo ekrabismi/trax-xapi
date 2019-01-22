@@ -24,6 +24,11 @@ class XapiServerServiceProvider extends DataStoreServiceProvider
     protected $plugin = 'trax-xapi-server';
 
     /**
+     * Plugin dependencies. May be overridden.
+     */
+    protected $dependencies = ['trax-account'];
+
+    /**
      * Namespace. Must be overridden.
      */
     protected $namespace = __NAMESPACE__;
