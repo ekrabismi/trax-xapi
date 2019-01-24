@@ -3,6 +3,7 @@
 namespace Trax\XapiServer\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 use Trax\XapiServer\XapiServerServices;
 use Trax\XapiServer\Http\Validations\XapiStatementValidation;
@@ -131,31 +132,40 @@ class XapiStatementController extends XapiStatementControllerSwitch
         $this->validateStoreRequest($request);
         list($statements, $attachments, $agents, $activities) = $this->validateStoreContent($request);
         
-        // Store statements
-        $res = array();
-        if (is_array($statements)) {
-            foreach($statements as $statement) {
-                $res[] = $this->store->store($statement);
-            }
-        } else {
-            $res[] = $this->store->store($statements);
-        }        
+        // Start Transaction
+        $res = DB::transaction(function () use ($statements, $attachments, $agents, $activities) {
 
-        // Store attachments
-        foreach($attachments as $attachment) {
-            $this->attachmentStore->store($attachment);
-        }
-        
-        // Store activities
-        foreach($activities as $activity) {
-            $this->activityStore->store($activity);
-        }
-        
-        // Store agents
-        foreach($agents as $agent) {
-            $this->agentStore->store($agent);
-        }
-        
+            // Should perform a single request per store !!!!!!!!!!!!!!!!!!!!!!!
+
+            // Store statements
+            $res = array();
+            if (is_array($statements)) {
+                foreach($statements as $statement) {
+                    $res[] = $this->store->store($statement);
+                }
+            } else {
+                $res[] = $this->store->store($statements);
+            }        
+
+            // Store attachments
+            foreach($attachments as $attachment) {
+                $this->attachmentStore->store($attachment);
+            }
+            
+            // Store activities
+            foreach($activities as $activity) {
+                $this->activityStore->store($activity);
+            }
+            
+            // Store agents
+            foreach($agents as $agent) {
+                $this->agentStore->store($agent);
+            }
+
+            return $res;
+        });
+        // End of transaction
+
         // Response
         return response()->json($res);
     }

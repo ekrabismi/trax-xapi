@@ -46,7 +46,7 @@ class XapiSampleServiceTest extends XapiServiceTest
 
     public function test_pattern()
     {
-        $passed = \XapiDesign::profile()->pattern('statement-get-attachments')->test()->assert($this->context);
+        $passed = \XapiDesign::profile()->pattern('statement-post-batch')->test()->assert($this->context);
         $this->assertTrue($passed);
     }
     

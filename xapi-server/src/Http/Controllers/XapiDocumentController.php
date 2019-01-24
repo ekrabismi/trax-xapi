@@ -12,16 +12,9 @@ trait XapiDocumentController
      */
     public function get(Request $request)
     {
-        // Permissions
         $this->allowsRead($request);
-
-        // Request validation
         $this->validateGetRequest($request);
-        
-        // Request
         list($content, $type) = $this->getRequest($request);
-        
-        // Response
         return $this->getResponse($content, $type);
     }
 
