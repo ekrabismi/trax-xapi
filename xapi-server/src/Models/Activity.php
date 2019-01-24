@@ -6,6 +6,7 @@ traxCreateModelSwitchClass('Trax\XapiServer\Models', 'trax-xapi-server', 'Activi
 
 class Activity extends ActivityModel
 {
+    // Git test
     /**
      * The table associated with the model.
      */
