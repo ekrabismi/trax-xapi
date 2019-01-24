@@ -25,11 +25,4 @@ class Activity extends ActivityModel
         'id', 'data', 'created_at', 'updated_at'
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     */
-    protected $casts = [
-        'data' => 'object',
-    ];
-
 }

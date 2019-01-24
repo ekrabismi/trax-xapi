@@ -8,8 +8,7 @@ class XapiSampleServiceTest extends XapiServiceTest
     {
         // When we get statements
         $response = \XapiClient::statements()->get([
-            'statementId' => 'd53862ed-178b-3bf0-9a7c-9db04e3e53de',
-            'attachments' => true
+            //'statementId' => '0df68d8b-add4-3012-a299-705d0ee633b6'
         ])->send($this->context);
 
         // We get a 200 code

@@ -10,7 +10,7 @@ class XapiServiceTest extends TestCase
      * Remote testing: use classic HTTP requests to access a remote LRS.
      * Local testing: use local TestCase requests to test the current LRS.
      */
-    protected $remote = false;
+    protected $remote = true;
 
     /**
      * Test context. Passed to the client.
