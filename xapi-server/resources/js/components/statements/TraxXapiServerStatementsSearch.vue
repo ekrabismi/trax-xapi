@@ -217,7 +217,7 @@
 
         <!-- Submit buttons -->
 
-        <div class="modal-footer">
+        <div class="trax-form-actions text-right">
             <button type="button" class="btn btn-default btn-link" @click="resetAll"> {{ lang.trax_xapi_server.common.reset_all }} </button>
             <button type="button" class="btn btn-default btn-link" @click="resetAllClose"> {{ lang.trax_xapi_server.common.reset_all_and_close }} </button>
             <button type="submit" class="btn btn-primary btn-round"> {{ lang.trax_xapi_server.common.search }} </button>

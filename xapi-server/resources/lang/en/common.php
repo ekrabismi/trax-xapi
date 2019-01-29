@@ -4,7 +4,7 @@ return [
 
     // Titles
     'xapi_data' => 'xAPI Data',
-    'xapi_data_settings' => 'xAPI Data Settings',
+    'xapi_data_settings' => 'xAPI Data Management',
     'statement' => 'Statement',
     'statements' => 'Statements',
     'activity' => 'Activity',
