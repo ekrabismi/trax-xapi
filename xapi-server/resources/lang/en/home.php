@@ -12,7 +12,7 @@ return [
         ",
 
     // Get started
-    'get_started' => "Démarrer",
+    'get_started' => "Get Started",
     'get_started_1' => 
         "If this is your first connection, you may want to change your password 
         in <a href='./trax/ui/account/my-profile'>My Profile</a>.",
