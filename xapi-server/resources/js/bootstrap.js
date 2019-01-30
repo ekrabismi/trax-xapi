@@ -1,6 +1,7 @@
 
-// Data management
-Vue.component('trax-xapi-server-settings', require('./components/settings/TraxXapiServerDataManagement.vue').default);
+// Home
+Vue.component('trax-xapi-server-home-get-started', require('./components/home/TraxXapiServerHomeGetStarted.vue').default);
+Vue.component('trax-xapi-server-home-resources', require('./components/home/TraxXapiServerHomeResources.vue').default);
 
 // Statements
 Vue.component('trax-xapi-server-statements', require('./components/statements/TraxXapiServerStatements.vue').default);
@@ -16,6 +17,9 @@ Vue.component('trax-xapi-server-activities-search', require('./components/activi
 Vue.component('trax-xapi-server-agents', require('./components/agents/TraxXapiServerAgents.vue').default);
 Vue.component('trax-xapi-server-agents-table', require('./components/agents/TraxXapiServerAgentsTable.vue').default);
 Vue.component('trax-xapi-server-agents-search', require('./components/agents/TraxXapiServerAgentsSearch.vue').default);
+
+// Data management
+Vue.component('trax-xapi-server-settings', require('./components/settings/TraxXapiServerSettings.vue').default);
 
 // Other UI elements
 Vue.component('trax-xapi-server-json-modal', require('./components/misc/TraxXapiServerJsonModal.vue').default);

@@ -9,7 +9,7 @@ class XapiServerUI extends UIRegistrar
     /**
      * List of language files to load for JS access.
      */
-    protected $langFiles = ['trax-xapi-server::common'];
+    protected $langFiles = ['trax-xapi-server::common', 'trax-xapi-server::home'];
 
     /**
      * Main menu.
@@ -19,7 +19,7 @@ class XapiServerUI extends UIRegistrar
         ],
         'settings' => [
             'xapi-data' => [
-                'title' => 'trax-xapi-server::common.xapi_data',
+                'title' => 'trax-xapi-server::common.xapi_data_settings',
                 'route' => 'trax.ui.xapi-server.settings',
                 'permission' => 'xapi_server_data_settings',
             ],
