@@ -1,6 +1,6 @@
 <template>
 
-    <trax-ui-card :title="lang.trax_xapi_server.home.resources" class="trax-typo">
+    <trax-ui-card :title="lang.trax_xapi_server.home.resources" title-bold="1" class="trax-typo">
         <ul>
             <li v-html="lang.trax_xapi_server.home.resources_1"></li>
             <li v-html="lang.trax_xapi_server.home.resources_2"></li>
