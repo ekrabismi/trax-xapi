@@ -80,6 +80,7 @@ abstract class XapiRemoteApi
     public function __construct()
     {
         $this->endpoint = config('trax-xapi-client.lrs.endpoint');
+        if (!$this->endpoint) $this->endpoint = config('app.url').'/trax/ws/xapi';
         $this->url = $this->endpoint.'/'.$this->api;
         $this->http = new HttpClient();
         $this->faker = Factory::create();

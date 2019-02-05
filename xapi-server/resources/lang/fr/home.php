@@ -33,14 +33,12 @@ return [
     'resources_1' =>
         "<a href='https://github.com/trax-project/trax-lrs' target='_blank'>Page Github</a> du projet TRAX LRS.",
     'resources_2' =>
-        "<a href='http://doc.traxlrs.com' target='_blank'>Documentation</a> du projet TRAX LRS.",
-    'resources_3' =>
         "<a href='http://traxlrs.com' target='_blank'>Site Web</a> du projet TRAX LRS.",
-    'resources_4' =>
+    'resources_3' =>
         "<a href='https://github.com/adlnet/xAPI-Spec' target='_blank'>Spécification</a> xAPI.",
-    'resources_5' =>
+    'resources_4' =>
         "<a href='http://xapi.vocab.pub/' target='_blank'>Vocabulaire</a> défini par la communauté xAPI.",
-    'resources_6' =>
+    'resources_5' =>
         "<a href='http://fraysse.eu' target='_blank'>A propos de l'auteur</a>.",
 
 ];

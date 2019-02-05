@@ -7,7 +7,6 @@
             <li v-html="lang.trax_xapi_server.home.resources_3"></li>
             <li v-html="lang.trax_xapi_server.home.resources_4"></li>
             <li v-html="lang.trax_xapi_server.home.resources_5"></li>
-            <li v-html="lang.trax_xapi_server.home.resources_6"></li>
         </ul>
     </trax-ui-card>
 

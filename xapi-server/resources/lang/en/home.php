@@ -8,7 +8,7 @@ return [
         distributed under the <a href='https://eupl.eu/1.2/en/' target='_blank'>EUPL 1.2 license</a>.
         It conforms with the lastest <a href='https://github.com/adlnet/xAPI-Spec' target='_blank'>xAPI specification</a> 
         and has been <a href='https://adopters.adlnet.gov/products/search/trax/0' target='_blank'>certified by ADL</a>.
-        Its features are minimalist but extensible by anyone who has <a href='https://laravel.com/' target='_blank'>PHP/Laravel</a> programming skills.
+        Its features are minimalist but extensible by everyone who has <a href='https://laravel.com/' target='_blank'>PHP/Laravel</a> programming skills.
         ",
 
     // Get started
@@ -33,14 +33,12 @@ return [
     'resources_1' =>
         "TRAX LRS <a href='https://github.com/trax-project/trax-lrs' target='_blank'>Github page</a>.",
     'resources_2' =>
-        "TRAX LRS <a href='http://doc.traxlrs.com' target='_blank'>documentation website</a>.",
+        "TRAX LRS <a href='http://traxlrs.com' target='_blank'>website</a>.",
     'resources_3' =>
-        "TRAX LRS <a href='http://traxlrs.com' target='_blank'>communication website</a>.",
-    'resources_4' =>
         "xAPI <a href='https://github.com/adlnet/xAPI-Spec' target='_blank'>current specification</a>.",
-    'resources_5' =>
+    'resources_4' =>
         "xAPI <a href='http://xapi.vocab.pub/' target='_blank'>community vocabulary</a>.",
-    'resources_6' =>
+    'resources_5' =>
         "About <a href='http://fraysse.eu' target='_blank'>the author</a>.",
 
 ];

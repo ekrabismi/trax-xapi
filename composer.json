@@ -1,0 +1,20 @@
+{
+    "name": "trax/xapi",
+    "description": "xAPI core features for Trax applications",
+    "type": "library",
+    "license": "EUPL-1.2",
+    "authors": [
+        {
+            "name": "Sébastien Fraysse",
+            "email": "sebastien@fraysse.eu",
+            "homepage": "http://fraysse.eu"
+}
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Trax\\XapiClient\\": "xapi-client/src/",
+            "Trax\\XapiServer\\": "xapi-server/src/"
+        }
+    }
+}
