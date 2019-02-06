@@ -23,10 +23,10 @@ return [
         "Start using your LRP in order to generate learning data.",
     'get_started_4' =>
         "Explore the Statements that were recorded in the LRS 
-        using the <a href='./trax/ui/xapi-server/statements'>Statements page</a>.",
+        using the <a href='./trax/ui/xapi-server/statements'>Statements</a> page.",
     'get_started_5' => 
-        "Expose your Statements to a Learning Records Consumer (LRC) 
-        in order to analyse your data.",
+        "Expose your Statements to a Learning Records Consumer (LRC) in order to analyse your data,
+        or develop your own feature and extend TRAX LRS.",
 
     // Resources
     'resources' => "Resources",

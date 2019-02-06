@@ -16,21 +16,15 @@ class XapiStatementController extends XapiStatementControllerSwitch
 {
     use XapiStatementValidation, MultipartResponse;
     
-    
     /**
      * Attachments store.
      */
     protected $attachmentStore;
 
     /**
-     * Agents store.
+     * xAPI store.
      */
-    protected $agentStore;
-
-    /**
-     * Activities store.
-     */
-    protected $activityStore;
+    protected $xapiStores;
 
     
     /**
@@ -43,8 +37,7 @@ class XapiStatementController extends XapiStatementControllerSwitch
 
         // Dependent Stores
         $this->attachmentStore = $this->services->attachments();
-        $this->agentStore = $this->services->xapiAgents();
-        $this->activityStore = $this->services->xapiActivities();
+        $this->xapiStores = $this->services->xapiStores();
         
         // Middlewares
         if (traxRunningInLumen()) {
@@ -130,41 +123,10 @@ class XapiStatementController extends XapiStatementControllerSwitch
 
         // Request validation
         $this->validateStoreRequest($request);
-        list($statements, $attachments, $agents, $activities) = $this->validateStoreContent($request);
+        list($statements, $attachments) = $this->validateStoreContent($request);
         
-        // Start Transaction
-        $res = DB::transaction(function () use ($statements, $attachments, $agents, $activities) {
-
-            // Should perform a single request per store !!!!!!!!!!!!!!!!!!!!!!!
-
-            // Store statements
-            $res = array();
-            if (is_array($statements)) {
-                foreach($statements as $statement) {
-                    $res[] = $this->store->store($statement);
-                }
-            } else {
-                $res[] = $this->store->store($statements);
-            }        
-
-            // Store attachments
-            foreach($attachments as $attachment) {
-                $this->attachmentStore->store($attachment);
-            }
-            
-            // Store activities
-            foreach($activities as $activity) {
-                $this->activityStore->store($activity);
-            }
-            
-            // Store agents
-            foreach($agents as $agent) {
-                $this->agentStore->store($agent);
-            }
-
-            return $res;
-        });
-        // End of transaction
+        // Recording
+        $res = $this->xapiStores->recordStatements($statements, $attachments);
 
         // Response
         return response()->json($res);
@@ -175,27 +137,15 @@ class XapiStatementController extends XapiStatementControllerSwitch
      */
     public function storeOne(Request $request)
     {
+        // Permissions
+        $this->allowsCreate($request);
+
         // Request validation
         $this->validateStoreOneRequest($request);
-        list($statements, $attachments, $agents, $activities) = $this->validateStoreOneContent($request);
+        list($statements, $attachments) = $this->validateStoreOneContent($request);
         
-        // Store statements
-        $id = $this->store->storeOne($request->input('statementId'), $statements);
-        
-        // Store attachments
-        foreach($attachments as $attachment) {
-            $this->attachmentStore->store($attachment);
-        }
-        
-        // Store activities
-        foreach($activities as $activity) {
-            $this->activityStore->store($activity);
-        }
-        
-        // Store agents
-        foreach($agents as $agent) {
-            $this->agentStore->store($agent);
-        }
+        // Recording
+        $id = $this->xapiStores->recordStatement($request->input('statementId'), $statements, $attachments);
         
         // Response
         return response('', 204);

@@ -31,9 +31,25 @@ class XapiSampleServiceTest extends XapiServiceTest
         $this->assertTrue($response->code == 200);
     }
 
+    /**
+     * Try to build a statement using a simple vocab index, and record it.
+     */
+    public function test_builder_record()
+    {
+        // Given a Statement, when I record it
+        $response = \XapiDesign::builder()
+            ->agent('sebastien@fraysse.eu')
+            ->verb('http://adlnet.gov/expapi/verbs/completed')
+            ->activity('http://xapi.fr/activities/act01')
+            ->record();
+
+        // I get an array
+        $this->assertTrue(is_array($response));
+    }
+    
     public function test_builder_post()
     {
-        // Given a Statement without Agent
+        // Given a Statement, when I post it
         $response = \XapiDesign::builder()
             ->agent('sebastien@fraysse.eu')
             ->verb('completed')
@@ -46,7 +62,7 @@ class XapiSampleServiceTest extends XapiServiceTest
 
     public function test_pattern()
     {
-        $passed = \XapiDesign::profile()->pattern('statement-post-batch')->test()->assert($this->context);
+        $passed = \XapiDesign::profile()->pattern('statement-put-simple')->test()->assert($this->context);
         $this->assertTrue($passed);
     }
     

@@ -3,6 +3,7 @@
 namespace Trax\XapiServer; 
 
 use Trax\DataStore\DataStoreServices;
+use Trax\XapiServer\Units\XapiStoresUnit;
 
 class XapiServerServices extends DataStoreServices
 {
@@ -60,6 +61,18 @@ class XapiServerServices extends DataStoreServices
      */
     public function xapiAgents() {
         return $this->store('Agent', 'Xapi');
+    }
+
+
+    // ---------------------------------- xAPI Standard Unit of Work ------------------------- //
+
+
+    /**
+     * Get Xapi Statements store.
+     */
+    public function xapiStores()
+    {
+        return new XapiStoresUnit($this);
     }
 
 
