@@ -123,14 +123,8 @@ trait XapiStatementValidation
         
         // Attachments
         $this->validateAttachments($statements, $attachments);
-
-        // Get activities
-        $activities = $this->getActivities($statements);
         
-        // Get agents
-        $agents = $this->getAgents($statements);
-        
-        return array($statements, $attachments, $agents, $activities);
+        return array($statements, $attachments);
     }
 
     /**
@@ -139,7 +133,7 @@ trait XapiStatementValidation
     protected function validateStoreOneContent(Request $request)
     {
         // Validate POST content
-        list($statements, $attachments, $agents, $activities) = $this->validateStoreContent($request);
+        list($statements, $attachments) = $this->validateStoreContent($request);
 
         // Statement batch
         if (is_array($statements))
@@ -149,7 +143,7 @@ trait XapiStatementValidation
         if (isset($statements->id) && $statements->id != $request->input('statementId'))
             throw new XapiContentException('Inconsistent statement ID.');
         
-        return array($statements, $attachments, $agents, $activities);
+        return array($statements, $attachments);
     }
     
     /**
@@ -199,70 +193,6 @@ trait XapiStatementValidation
         $statement = $statements;
         $validator = new XapiStatementValidator();
         $validator->validate($statement);
-    }
-    
-    /**
-     * Get Activities.
-     */
-    protected function getActivities($statements)
-    {
-        // Statements batch
-        $activities = array();
-        if (is_array($statements)) {
-            foreach($statements as $statement) {
-                $activities = array_merge($activities, $this->getActivities($statement));
-            }
-            return $activities;
-        }
-        
-        // Single statement
-        $statement = $statements;
-        
-        // Activity from the object
-        if (!isset($statement->object->objectType) || $statement->object->objectType == 'Activity')
-            $activities[] = $statement->object;
-            
-        // Activity from substatement
-        if (isset($statement->object->objectType) && $statement->object->objectType == 'SubStatement') {
-            $activities = array_merge($activities, $this->getActivities($statement->object));
-        }
-        
-        // Result
-        return $activities;
-    }
-    
-    /**
-     * Get Agents.
-     */
-    protected function getAgents($statements)
-    {
-        // Statements batch
-        $agents = array();
-        if (is_array($statements)) {
-            foreach($statements as $statement) {
-                $agents = array_merge($agents, $this->getAgents($statement));
-            }
-            return $agents;
-        }
-        
-        // Single statement
-        $statement = $statements;
-        
-        // Agents from the actor
-        $agents[] = $statement->actor;
-            
-        // Agents from the object
-        if (isset($statement->object->objectType) && ($statement->object->objectType == 'Agent' || $statement->object->objectType == 'Group')) {
-            $agents[] = $statement->object;
-        }
-            
-        // Agents from substatement
-        if (isset($statement->object->objectType) && $statement->object->objectType == 'SubStatement') {
-            $agents = array_merge($agents, $this->getAgents($statement->object));
-        }
-        
-        // Result
-        return $agents;
     }
     
     /**
