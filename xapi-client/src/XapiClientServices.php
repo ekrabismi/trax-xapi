@@ -17,11 +17,20 @@ class XapiClientServices
     {
         $this->app = $app;
     }
-    
+
+    /**
+     * Get the local Statement API.
+     */
+    public function localStatements()
+    {
+        return new XapiLocalStatementApi();
+    }
+
     /**
      * Get the Statement API.
      */
-    public function statements() {
+    public function statements()
+    {
         return new XapiStatementApi();
     }
     
