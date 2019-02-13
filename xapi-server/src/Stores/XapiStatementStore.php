@@ -263,7 +263,10 @@ class XapiStatementStore extends StatementStore
         $data['stored'] = traxIsoTimestamp();
 
         // Set the authority prop
-        $data['authority'] = array('objectType' => 'Agent', 'mbox' => 'mailto:platform@traxlrs.com');
+        $data['authority'] = [
+            'objectType' => 'Agent', 
+            'account' => config('trax-xapi-server.authority')
+        ];
         
         // Testing data (override stored)
         if (isset($data['_test'])) {
