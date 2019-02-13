@@ -26,7 +26,7 @@
 <div class="row">
     <div class="col">
         <small>
-            TRAX LRS version 1.0.0-rc.1 | <a href="http://fraysse.eu" target="_blank">&copy;2019 Sébastien FRAYSSE</a>
+            TRAX LRS version 1.0.0-rc.3 | <a href="http://fraysse.eu" target="_blank">&copy;2019 Sébastien FRAYSSE</a>
         </small>
     </div>
 </div>
