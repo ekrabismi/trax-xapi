@@ -365,11 +365,11 @@ class XapiStatementSchema
             && (isset($object->object->mbox) || isset($object->object->openid) || isset($object->object->mbox_sha1sum) || isset($object->object->account)))
                 throw new XapiStatementException('Invalid "Statement": the objectType must be "Agent".');
         
-        // Context revision with anything by Activity object
+        // Context revision with anything but Activity object
         if (isset($object->context->revision) && isset($object->object->objectType) && $object->object->objectType != 'Activity')
                 throw new XapiStatementException('Invalid "Statement": "context->revision" is allowed only with Activity objects.');
         
-        // Context platform with anything by Activity object
+        // Context platform with anything but Activity object
         if (isset($object->context->platform) && isset($object->object->objectType) && $object->object->objectType != 'Activity')
                 throw new XapiStatementException('Invalid "Statement": "context->platform" is allowed only with Activity objects.');
     }
@@ -383,11 +383,11 @@ class XapiStatementSchema
         if (isset($object->object->objectType) && $object->object->objectType == 'SubStatement')
             throw new XapiStatementException('Invalid "SubStatement": nested sub-statements are not allowed.');
         
-        // Context revision with anything by Activity object
+        // Context revision with anything but Activity object
         if (isset($object->context->revision) && isset($object->object->objectType) && $object->object->objectType != 'Activity')
                 throw new XapiStatementException('Invalid "Statement": "context->revision" is allowed only with Activity objects.');
         
-        // Context platform with anything by Activity object
+        // Context platform with anything but Activity object
         if (isset($object->context->platform) && isset($object->object->objectType) && $object->object->objectType != 'Activity')
                 throw new XapiStatementException('Invalid "Statement": "context->platform" is allowed only with Activity objects.');
     }
