@@ -35,5 +35,5 @@
 @endsection
 
 @section('components')
-    <script src="{{ mix('js/trax-xapi-server.js') }}"></script>
+    <script src="{{ traxMix('js/trax-xapi-server.js') }}"></script>
 @endsection
