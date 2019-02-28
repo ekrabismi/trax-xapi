@@ -11,12 +11,7 @@ abstract class ResultTranslator extends XapiTranslator
     {
         if (!isset($this->translation)) $this->translate();
         $builder = $this->builder->resultBuilder();
-        $this->addBuilderTranslationProps($builder, ['success', 'completion', 'response', 'duration', 'extensions']);
-        $builder->score()
-            ->raw($this->translation->scoreRaw)
-            ->scaled($this->translation->scoreScaled)
-            ->min($this->translation->scoreMin)
-            ->max($this->translation->scoreMax);
+        $this->addBuilderTranslationProps($builder, ['success', 'score', 'completion', 'response', 'duration', 'extensions']);
         return $builder->get();
     }
 

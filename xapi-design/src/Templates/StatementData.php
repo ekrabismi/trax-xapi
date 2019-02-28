@@ -183,35 +183,11 @@ abstract class StatementData
     }
 
     /**
-     * Get the score scaled.
+     * Get the score.
      */
-    protected function scoreScaled()
+    protected function score()
     {
-        return $this->prop('result', 'scoreScaled');
-    }
-
-    /**
-     * Get the score raw.
-     */
-    protected function scoreRaw()
-    {
-        return $this->prop('result', 'scoreRaw');
-    }
-
-    /**
-     * Get the score min.
-     */
-    protected function scoreMin()
-    {
-        return $this->prop('result', 'scoreMin');
-    }
-
-    /**
-     * Get the score max.
-     */
-    protected function scoreMax()
-    {
-        return $this->prop('result', 'scoreMax');
+        return $this->prop('result', 'score');
     }
 
     /**
