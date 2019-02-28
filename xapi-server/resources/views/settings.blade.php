@@ -8,7 +8,7 @@
 
 <div class="row">
     <div class="col-12">
-        <trax-xapi-server-settings></trax-xapi-server-settings>
+        <trax-xapi-server-settings debug="{{ config('app.debug') }}"></trax-xapi-server-settings>
     </div>
 </div>
 

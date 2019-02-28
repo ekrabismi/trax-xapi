@@ -19,6 +19,10 @@
 <script>
     export default {
     
+        props: {
+            debug: null
+        },
+
         data: function() {
             return {
                 lang: lang,
@@ -30,7 +34,7 @@
         computed: {
 
             deletePermission() {
-                return this.user.admin || this.user.permissions['xapi_server_delete_xapi_data'];
+                return this.debug == true && (this.user.admin || this.user.permissions['xapi_server_delete_xapi_data']);
             }
         }
     }
