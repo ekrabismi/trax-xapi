@@ -98,6 +98,7 @@ return [
     'perm_delete_xapi_data' => 'xAPI: Delete Data',
 
     // Settings
+    'debug_setting' => 'This feature is available only in debug mode.',
 
     // Clear all
     'clear_data' => 'Clear all',

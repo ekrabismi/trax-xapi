@@ -98,6 +98,7 @@ return [
     'perm_delete_xapi_data' => 'xAPI: suppression des données',
 
     // Settings
+    'debug_setting' => "Cette fonction n'est disponible qu'en mode debug.",
 
     // Clear all
     'clear_data' => 'Tout supprimer',
