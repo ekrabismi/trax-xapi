@@ -1,17 +1,6 @@
 <?php
 
 /**
- * Validate something given validation rules.
- */
-if (! function_exists('traxValidate')) {
-    
-    function traxValidate($data, $rules) {
-        $validator = app('validator')->make(['data' => $data], ['data' => $rules]);
-        return $validator->passes();
-    }
-}
-
-/**
  * Evaluate a boolean var in a flexible manner ("false" is evaluated false).
  */
 if (! function_exists('traxBool')) {
