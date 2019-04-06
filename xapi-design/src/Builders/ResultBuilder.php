@@ -29,14 +29,13 @@ class ResultBuilder
     /**
      * Set the score.
      */
-    public function score($scaled = null, $raw = null, $min = null, $max = null)
+    public function score($score = null)
     {
-        if (!isset($scaled) && !isset($raw) && !isset($min) && !isset($max)) return $this->object();
-        $this->result['score'] = [];
-        if (isset($scaled)) $this->result['score']['scaled'] = $scaled;
-        if (isset($raw)) $this->result['score']['raw'] = $raw;
-        if (isset($min)) $this->result['score']['min'] = $min;
-        if (isset($max)) $this->result['score']['max'] = $max;
+        if (!isset($score)) return $this->object();
+        if (!isset($score->scaled) && !isset($score->raw) && !isset($score->min) && !isset($score->max)) {
+            return $this->object();
+        }
+        $this->result['score'] = $score;
         return $this->object();
     }
 
